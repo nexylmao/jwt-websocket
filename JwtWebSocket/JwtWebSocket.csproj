@@ -53,6 +53,7 @@
     <Compile Include="Connection.cs" />
     <Compile Include="JsonParser.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="OnMessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

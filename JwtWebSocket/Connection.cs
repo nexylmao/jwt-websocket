@@ -7,7 +7,7 @@ namespace JwtWebSocket
     public class Connection
     {
         private WebSocket client; // = new WebSocket(*path*);
-        
+
         private IJwtAlgorithm algorithm;
         private IJsonSerializer serializer; // to be JwtWebSocket.JsonParser
         private IBase64UrlEncoder urlEncoder;
