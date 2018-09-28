@@ -1,3 +1,5 @@
+using System;
+
 namespace JwtWebSocket
 {
     /// <summary>
@@ -5,7 +7,7 @@ namespace JwtWebSocket
     /// The messages you send, should also be sent in this format.
     /// </summary>
     /// <typeparam name="T">This is the type of the data field of the message.</typeparam>
-    public class SocketMessage<T>
+    public class SocketMessage<T> : EventArgs
     {
         private string tag, message;
         private T data;
