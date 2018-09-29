@@ -1,0 +1,12 @@
+/home/nexyy/git-nexylmao/jwt-websocket/JwtWebSocket/bin/Debug/JwtWebSocket.dll
+/home/nexyy/git-nexylmao/jwt-websocket/JwtWebSocket/bin/Debug/JwtWebSocket.pdb
+/home/nexyy/git-nexylmao/jwt-websocket/JwtWebSocket/bin/Debug/JWT.dll
+/home/nexyy/git-nexylmao/jwt-websocket/JwtWebSocket/bin/Debug/Newtonsoft.Json.dll
+/home/nexyy/git-nexylmao/jwt-websocket/JwtWebSocket/bin/Debug/websocket-sharp.dll
+/home/nexyy/git-nexylmao/jwt-websocket/JwtWebSocket/bin/Debug/JWT.xml
+/home/nexyy/git-nexylmao/jwt-websocket/JwtWebSocket/bin/Debug/Newtonsoft.Json.xml
+/home/nexyy/git-nexylmao/jwt-websocket/JwtWebSocket/bin/Debug/websocket-sharp.xml
+/home/nexyy/git-nexylmao/jwt-websocket/JwtWebSocket/obj/Debug/JwtWebSocket.csprojResolveAssemblyReference.cache
+/home/nexyy/git-nexylmao/jwt-websocket/JwtWebSocket/obj/Debug/JwtWebSocket.csproj.CoreCompileInputs.cache
+/home/nexyy/git-nexylmao/jwt-websocket/JwtWebSocket/obj/Debug/JwtWebSocket.dll
+/home/nexyy/git-nexylmao/jwt-websocket/JwtWebSocket/obj/Debug/JwtWebSocket.pdb
