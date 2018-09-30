@@ -25,8 +25,8 @@ namespace JwtWebSocket
 
         public OnMessageHandler MessageHandler
         {
-            get => messageHandler;
-            set => messageHandler = value;
+            get { return messageHandler; }
+            set { messageHandler = value; }
         }
 
         public Connection(string path, string secret)
@@ -48,7 +48,10 @@ namespace JwtWebSocket
                 string message = args.Data;
                 try
                 {
-                    message = Verify(message);
+                    if (message.IndexOf("ey") == 0 && message.Split('.').Length == 3)
+                    {
+                        message = Verify(message);    
+                    }
                 }
                 catch (TokenExpiredException)
                 {

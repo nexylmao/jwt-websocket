@@ -7,36 +7,35 @@ namespace JwtWebSocket
 {
     public class OnMessageHandler
     {
-        private Dictionary<string, object> events;
-        private EventHandler<SocketMessage<object>> defaultTag;
+        private Dictionary<string, ET> events;
+        private event EventHandler<SocketMessage<object>> defaultTag;
         
         public OnMessageHandler()
         {
-            events = new Dictionary<string, object>();
+            events = new Dictionary<string, ET>();
             defaultTag = Handler;
         }
 
         public OnMessageHandler(EventHandler<SocketMessage<object>> defaultTag)
         {
-            events = new Dictionary<string, object>();
+            events = new Dictionary<string, ET>();
             this.defaultTag = defaultTag;
         }
 
-        public void SignTag(string tag, Type type)
+        public object SignTag(string tag, Type type)
         {
             if (events.ContainsKey(tag))
             {
                 throw new Exception("Tag already exists");
             }
-            var sm = typeof(SocketMessage<>).MakeGenericType(type);
-            var eh = typeof(EventHandler<>).MakeGenericType(sm);
-            ConstructorInfo ctor = eh.GetConstructors()[0];
-            Action<object, EventArgs> handler = Handler;
-            var eventHandler = ctor.Invoke(new object[]{handler});
-            events.Add(tag, eventHandler);
+            var e = typeof(EventTag<>).MakeGenericType(type);
+            ConstructorInfo ctor = e.GetConstructors()[0];
+            var eventHandler = ctor.Invoke(new object[]{tag});
+            events.Add(tag, (ET)eventHandler);
+            return eventHandler;
         }
 
-        public object GetHandler(string tag)
+        public ET GetHandler(string tag)
         {
             if (!events.ContainsKey(tag))
             {
@@ -59,8 +58,8 @@ namespace JwtWebSocket
                 defaultTag?.Invoke(this, JsonConvert.DeserializeObject<SocketMessage<object>>(json));
                 return;
             }
-            dynamic eventHandler = events[tag];
-            eventHandler(this, JsonConvert.DeserializeObject(json));
+            ET e = events[tag];
+            e.Trigger(json);
         }
     }
 }

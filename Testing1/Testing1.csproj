@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E5C49CA-0C43-4C3B-A2CB-00C847A977C8}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{1594F62B-5113-4BEA-A2FA-D22E6BA6D867}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JwtWebSocket</RootNamespace>
-    <AssemblyName>JwtWebSocket</AssemblyName>
+    <RootNamespace>Testing1</RootNamespace>
+    <AssemblyName>Testing1</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <LangVersion>6</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,32 +33,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="JWT, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>packages\JWT.4.0.0\lib\net46\JWT.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\JwtWebSocket\bin\Debug\JWT.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-      <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\JwtWebSocket\bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="websocket-sharp, Version=1.0.2.59611, Culture=neutral, PublicKeyToken=5660b08a1845a91e">
-      <HintPath>packages\WebSocketSharp.1.0.3-rc11\lib\websocket-sharp.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\JwtWebSocket\bin\Debug\websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="JwtWebSocket">
+      <HintPath>..\JwtWebSocket\bin\Debug\JwtWebSocket.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection.cs" />
-    <Compile Include="EventTag.cs" />
-    <Compile Include="JsonParser.cs" />
-    <Compile Include="Message.cs" />
-    <Compile Include="OnMessageHandler.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
