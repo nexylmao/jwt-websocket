@@ -50,7 +50,7 @@ namespace JwtWebSocket
                 {
                     if (message.IndexOf("ey") == 0 && message.Split('.').Length == 3)
                     {
-                        message = Verify(message);    
+                        message = Verify(message);
                     }
                 }
                 catch (TokenExpiredException)
@@ -89,7 +89,7 @@ namespace JwtWebSocket
         {
             client.OnMessage -= onMessageEvent;
         }
-        
+
         public void SubscribeOnEvent(EventHandler<ErrorEventArgs> onErrorEvent)
         {
             client.OnError += onErrorEvent;
@@ -109,7 +109,7 @@ namespace JwtWebSocket
         {
             client.OnClose -= onCloseEvent;
         }
-        
+
         public void Send(EventArgs data, bool jwt)
         {
             if (client.ReadyState != WebSocketState.Open)
@@ -127,7 +127,7 @@ namespace JwtWebSocket
             }
             client.Send(json);
         }
-        
+
         public void Start()
         {
             client.Connect();
@@ -137,7 +137,7 @@ namespace JwtWebSocket
         {
             client.Close();
         }
-        
+
         private string Sign(object json)
         {
             return encoder.Encode(json, secret);

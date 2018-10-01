@@ -9,7 +9,7 @@ namespace JwtWebSocket
     {
         private Dictionary<string, ET> events;
         private event EventHandler<SocketMessage<object>> defaultTag;
-        
+
         public OnMessageHandler()
         {
             events = new Dictionary<string, ET>();
@@ -30,8 +30,8 @@ namespace JwtWebSocket
             }
             var e = typeof(EventTag<>).MakeGenericType(type);
             ConstructorInfo ctor = e.GetConstructors()[0];
-            var eventHandler = ctor.Invoke(new object[]{tag});
-            events.Add(tag, (ET)eventHandler);
+            var eventHandler = ctor.Invoke(new object[] {tag});
+            events.Add(tag, (ET) eventHandler);
             return eventHandler;
         }
 
@@ -43,8 +43,10 @@ namespace JwtWebSocket
             }
             return events[tag];
         }
-        
-        private static void Handler(object arg1, EventArgs arg2) { }
+
+        private static void Handler(object arg1, EventArgs arg2)
+        {
+        }
 
         public void Handle(string json)
         {

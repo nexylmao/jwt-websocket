@@ -7,7 +7,7 @@ namespace JwtWebSocket
     {
         void Trigger(string message);
     }
-    
+
     public class EventTag<T> : ET
     {
         private string tag;
