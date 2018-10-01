@@ -29,7 +29,7 @@ namespace Testing1
         {
             Console.Clear();
             Connection loginServer = new Connection(@"path", @"secret");
-            
+
             OnMessageHandler loginHandler = new OnMessageHandler((sender, message) =>
             {
                 Console.WriteLine();
@@ -37,26 +37,26 @@ namespace Testing1
                 Console.WriteLine("Message : " + message.message);
                 Console.WriteLine("Data : " + JsonConvert.SerializeObject(message.data));
             });
-            
-			EventTag<Status> handler = (EventTag<Status>)loginHandler.SignTag("status", typeof(Status));
-			handler.Event += (sender, message) =>
-			{
-			    Console.WriteLine();
-			    Console.WriteLine("This is a 'status' message");
+
+            EventTag<Status> handler = (EventTag<Status>) loginHandler.SignTag("status", typeof(Status));
+            handler.Event += (sender, message) =>
+            {
+                Console.WriteLine();
+                Console.WriteLine("This is a 'status' message");
                 Console.WriteLine("TAG : " + message.tag);
                 Console.WriteLine("Message : " + message.message);
                 Console.WriteLine("Data : " + JsonConvert.SerializeObject(message.data));
             };
-            
+
             loginServer.MessageHandler = loginHandler;
-            
+
             loginServer.Start();
             loginServer.Send(new SocketMessage<string>("whoami", "", ""), true);
-            
+
             System.Threading.Thread.Sleep(2000);
-            
+
             loginServer.Send(new SocketMessage<LoginData>("login", "", new LoginData(@"username", @"password")), true);
-            
+
             Console.ReadKey(true);
         }
     }
