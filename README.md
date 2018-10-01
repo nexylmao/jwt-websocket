@@ -69,11 +69,11 @@ There are two constructors, one will not handle 'default' case, which is when th
 
 And to get the Event for a tag, you can either sign it :
 ```
-ET event = messageHandler.SignTag("firstTag", typeof(T));
+EventTag<T> event = messageHandler.SignTag("firstTag", typeof(T));
 ```
-or get one which you already signed :
+or get one which you already signed (yes, you must know the type associated with the tag) :
 ```
-ET event = messageHandler.GetHandler("firstTag");
+EventTag<T> event = messageHandler.GetHandler("firstTag");
 ```
 
 When you have the event, you can simply do :
